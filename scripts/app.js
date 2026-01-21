@@ -60,10 +60,13 @@ const showDetailsButton = async (video_id) => {
 // Display NavData
 const displayNavData = (categories) => {
     const navItem = document.getElementById('nav-item');
+    const navList = document.getElementById('nav-list')
     categories.forEach(element => {
         const li = document.createElement('li');
+        const li_2 = document.createElement('li');
         li.innerHTML = `<button id="btn-${element.category_id}" onclick="categoryWiseVideo(${element.category_id})" class="btn btn-sm">${element.category}</button>`;
-
+        li_2.innerHTML = `<a>${element.category}</a>`;
+        navList.appendChild(li_2);
         navItem.appendChild(li);
     });
 
@@ -71,7 +74,6 @@ const displayNavData = (categories) => {
 
 // Display Video Functions
 const displayVideo = (videos) => {
-
     const videoSections = document.getElementById("video-sections");
     videoSections.innerHTML = "";
 
@@ -141,8 +143,8 @@ const loadAllData = async () => {
 };
 
 // Load all allsections Video
-const loadVideo = async () => {
-    const res = await fetch('https://openapi.programming-hero.com/api/phero-tube/videos');
+const loadVideo = async (input = "") => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title=${input}`);
     const data = await res.json();
     removeClass();
     const firstBtn = document.getElementById('first-button');
@@ -161,5 +163,11 @@ const categoryWiseVideo = async (id) => {
     displayVideo(data.category);
 };
 
+
+// Implement search functionality
+document.getElementById('search-input').addEventListener('keyup', (event) => {
+    const value = event.target.value;
+    loadVideo(value)
+})
 
 loadAllData();

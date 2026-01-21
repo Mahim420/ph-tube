@@ -23,19 +23,26 @@
                         <div tabindex="0" role="button" class="btn btn-ghost">
                             <img class="w-[120px]" src="./assets/Logo.png" alt="">
                         </div>
-                        <ul tabindex="-1"
+                        <ul id="nav-list" tabindex="-1"
                             class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><a>Homepage</a></li>
-                            <li><a>Portfolio</a></li>
-                            <li><a>About</a></li>
+                            <li><a>All</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="navbar-center">
-                    <button class="btn bg-[#25252520]">Sort by view</button>
+                    <label class="input">
+                        <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                                stroke="currentColor">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.3-4.3"></path>
+                            </g>
+                        </svg>
+                        <input id="search-input" type="search" class="grow" placeholder="Search" />
+                    </label>
                 </div>
                 <div class="navbar-end">
-                    <button class="btn text-white  btn-sm bg-[#FF1F3D]">Blog</button>
+                    <button class="btn text-white  btn-sm bg-[#FF1F3D]">Sort by view</button>
                 </div>
             </div>
         </nav>
